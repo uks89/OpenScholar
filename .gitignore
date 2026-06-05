@@ -19,6 +19,7 @@ out/
 *.hprof
 *.class
 *.jar
+!gradle/wrapper/gradle-wrapper.jar
 *.war
 *.ear
 local.properties
