@@ -1,5 +1,7 @@
 # OpenScholar
 
+[![Build](https://github.com/uks89/OpenScholar/actions/workflows/android-build.yml/badge.svg)](https://github.com/uks89/OpenScholar/actions/workflows/android-build.yml)
+
 Open-source, privacy-first AI research companion and second-brain system for students, researchers, and lifelong learners.
 
 ## Features
@@ -65,6 +67,14 @@ app/src/main/java/org/openscholar/app/
 ### Running
 - Select a device/emulator (API 28+)
 - Click Run (Shift+F10)
+
+### Build on GitHub
+Every push to `main` or `develop` automatically builds via GitHub Actions. The CI pipeline:
+1. Builds the debug APK
+2. Runs unit tests
+3. Uploads the APK and test reports as artifacts
+
+Download the latest build from the [Actions tab](https://github.com/uks89/OpenScholar/actions).
 
 ## Architecture Overview
 
