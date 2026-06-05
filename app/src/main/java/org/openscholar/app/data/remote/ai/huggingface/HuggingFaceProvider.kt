@@ -97,17 +97,15 @@ class HuggingFaceProvider(
     }
 
     override suspend fun generateEmbeddings(texts: List<String>): Result<List<List<Float>>> {
-        return try {
-            val results = texts.map { text ->
-                when (val result = generateEmbedding(text)) {
-                    is kotlin.Result.Success -> result.getOrThrow()
-                    is kotlin.Result.Failure -> return kotlin.Result.failure(result.exceptionOrNull()!!)
-                }
+        val results = mutableListOf<List<Float>>()
+        for (text in texts) {
+            val result = generateEmbedding(text)
+            if (result.isFailure) {
+                return Result.failure(result.exceptionOrNull() ?: Exception("Embedding failed"))
             }
-            kotlin.Result.success(results)
-        } catch (e: Exception) {
-            kotlin.Result.failure(e)
+            results.add(result.getOrThrow())
         }
+        return Result.success(results)
     }
 
     override suspend fun chat(

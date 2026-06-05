@@ -79,17 +79,15 @@ class OpenRouterProvider(
     }
 
     override suspend fun generateEmbeddings(texts: List<String>): Result<List<List<Float>>> {
-        return try {
-            val results = texts.map { text ->
-                when (val result = generateEmbedding(text)) {
-                    is Result.Success -> result.getOrThrow()
-                    is Result.Failure -> return Result.failure(result.exceptionOrNull()!!)
-                }
+        val results = mutableListOf<List<Float>>()
+        for (text in texts) {
+            val result = generateEmbedding(text)
+            if (result.isFailure) {
+                return Result.failure(result.exceptionOrNull() ?: Exception("Embedding failed"))
             }
-            Result.success(results)
-        } catch (e: Exception) {
-            Result.failure(e)
+            results.add(result.getOrThrow())
         }
+        return Result.success(results)
     }
 
     override suspend fun chat(
