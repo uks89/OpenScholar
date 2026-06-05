@@ -145,8 +145,8 @@ data class OllamaResponseMessage(
 
 @JsonClass(generateAdapter = false)
 data class OllamaRequestOptions(
-    val temperature: Double = 0.7,
-    @com.squareup.moshi.Json(name = "top_p") val topP: Double = 0.9,
+    val temperature: Float = 0.7f,
+    @com.squareup.moshi.Json(name = "top_p") val topP: Float = 0.9f,
     @com.squareup.moshi.Json(name = "top_k") val topK: Int = 40
 )
 

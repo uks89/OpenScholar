@@ -149,9 +149,9 @@ class OpenRouterProvider(
 data class OpenRouterChatRequest(
     val model: String,
     val messages: List<OpenRouterMessage>,
-    val temperature: Double = 0.7,
-    @Json(name = "max_tokens") val maxTokens: Int = 2048,
-    @Json(name = "top_p") val topP: Double = 0.9
+    val temperature: Float = 0.7f,
+    @com.squareup.moshi.Json(name = "max_tokens") val maxTokens: Int = 2048,
+    @com.squareup.moshi.Json(name = "top_p") val topP: Float = 0.9f
 )
 
 @JsonClass(generateAdapter = false)
@@ -173,7 +173,7 @@ data class OpenRouterChatResponse(
 data class OpenRouterChoice(
     val index: Int,
     val message: OpenRouterResponseMessage,
-    @Json(name = "finish_reason") val finishReason: String?
+    @com.squareup.moshi.Json(name = "finish_reason") val finishReason: String?
 )
 
 @JsonClass(generateAdapter = false)
@@ -184,9 +184,9 @@ data class OpenRouterResponseMessage(
 
 @JsonClass(generateAdapter = false)
 data class OpenRouterUsage(
-    @Json(name = "prompt_tokens") val promptTokens: Int?,
-    @Json(name = "completion_tokens") val completionTokens: Int?,
-    @Json(name = "total_tokens") val totalTokens: Int?
+    @com.squareup.moshi.Json(name = "prompt_tokens") val promptTokens: Int?,
+    @com.squareup.moshi.Json(name = "completion_tokens") val completionTokens: Int?,
+    @com.squareup.moshi.Json(name = "total_tokens") val totalTokens: Int?
 )
 
 @JsonClass(generateAdapter = false)

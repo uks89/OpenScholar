@@ -125,9 +125,9 @@ data class HFTextGenerationRequest(
 
 @JsonClass(generateAdapter = false)
 data class HFParameters(
-    val temperature: Double = 0.7,
+    val temperature: Float = 0.7f,
     @com.squareup.moshi.Json(name = "max_new_tokens") val maxNewTokens: Int = 2048,
-    @com.squareup.moshi.Json(name = "top_p") val topP: Double = 0.9,
+    @com.squareup.moshi.Json(name = "top_p") val topP: Float = 0.9f,
     @com.squareup.moshi.Json(name = "return_full_text") val returnFullText: Boolean = false
 )
 

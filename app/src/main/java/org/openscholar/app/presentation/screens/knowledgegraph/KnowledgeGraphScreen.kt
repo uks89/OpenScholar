@@ -30,6 +30,7 @@ fun KnowledgeGraphScreen() {
             TopAppBar(title = { Text("Knowledge Graph") })
         }
     ) { paddingValues ->
+        val primaryColor = MaterialTheme.colorScheme.primary
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -61,7 +62,7 @@ fun KnowledgeGraphScreen() {
             ) {
                 val center = Offset(size.width / 2, size.height / 2)
                 drawCircle(
-                    color = MaterialTheme.colorScheme.primary.copy(alpha = 0.1f),
+                    color = primaryColor.copy(alpha = 0.1f),
                     radius = size.minDimension / 3
                 )
             }

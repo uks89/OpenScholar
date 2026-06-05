@@ -126,7 +126,7 @@ fun ChatScreen(
 @Composable
 private fun MessageBubble(message: ChatUiMessage) {
     val isUser = message.role == MessageRole.USER
-    val alignment = if (isUser) Alignment.End else Alignment.Start
+    val alignment = if (isUser) androidx.compose.ui.Alignment.TopEnd else androidx.compose.ui.Alignment.TopStart
     val color = if (isUser)
         MaterialTheme.colorScheme.primaryContainer
     else

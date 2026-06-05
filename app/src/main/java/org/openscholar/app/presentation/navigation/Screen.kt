@@ -3,7 +3,7 @@ package org.openscholar.app.presentation.navigation
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Chat
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Hub
+import androidx.compose.material.icons.filled.AccountTree
 import androidx.compose.material.icons.filled.LibraryBooks
 import androidx.compose.material.icons.filled.QuestionAnswer
 import androidx.compose.material.icons.filled.Settings
@@ -19,7 +19,7 @@ sealed class Screen(
     data object Library : Screen("library", "Library", Icons.Default.LibraryBooks)
     data object Research : Screen("research", "Research", Icons.Default.QuestionAnswer)
     data object Chat : Screen("chat", "Chat", Icons.Default.Chat)
-    data object KnowledgeGraph : Screen("knowledge_graph", "Knowledge Graph", Icons.Default.Hub)
+    data object KnowledgeGraph : Screen("knowledge_graph", "Knowledge Graph", Icons.Default.AccountTree)
     data object Tasks : Screen("tasks", "Tasks", Icons.Default.Task)
     data object Settings : Screen("settings", "Settings", Icons.Default.Settings)
 
